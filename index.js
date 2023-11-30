@@ -1,25 +1,22 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-
-
-const cors = require('cors');
-const corsOptions ={
-    origin:'http://localhost:3001',
-    origin: '*', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
-
-
-
+var cors = require('cors')
 const app = express()
 const tasks = require("./routes/tasks");
 const users = require("./routes/users");
 const groups = require("./routes/groups");
 const uploadImage = require("./routes/uploadImage")
 const mongoose = require("./models/connection");
+
+
+const corsOptions ={
+    origin:'http://localhost:3001', 
+    origin: '*',
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 
 
 app.use(express.json());
