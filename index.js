@@ -16,6 +16,10 @@ app.use(bodyParser.json({limit: '30mb',extended: true}));
 app.use(bodyParser.urlencoded({limit: '30mb',extended: true}));
 app.use(cors());
 
+app.get("/", (req, res) => {
+    res.send("Sever Running");
+  });
+
 app.use("/tasks", tasks);
 app.use("/users", users);
 app.use("/groups", groups);
