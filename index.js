@@ -10,6 +10,17 @@ const uploadImage = require("./routes/uploadImage")
 const mongoose = require("./models/connection");
 
 
+app.use(express.json());
+
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
+
+app.use(bodyParser.json());
+
+
 // sending some images large in size
 // setting up the body parser to properly send our requests
 app.use(bodyParser.json({limit: '30mb',extended: true}));
