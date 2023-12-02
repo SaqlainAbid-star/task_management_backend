@@ -10,11 +10,14 @@ const uploadImage = require("./routes/uploadImage")
 const mongoose = require("./models/connection");
 
 
-const corsOptions ={
-    origin: '*',
-    credentials:true,            //access-control-allow-credentials:true
-}
-app.use(cors(corsOptions));
+const corsOptions = {
+  origin: 'http://localhost:3000', // specify the origin you want to allow
+  credentials: true, // allow cookies to be sent with requests
+  methods: 'GET,PUT,POST,OPTIONS', // specify the methods you want to allow
+  allowedHeaders: 'Content-Type,Authorization' // specify the headers you want to allow
+};
+
+app.use(cors(corsOptions)); // use cors middleware for all routes
 
 
 app.use(express.json());
