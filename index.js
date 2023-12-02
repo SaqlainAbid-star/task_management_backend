@@ -1,6 +1,5 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const path = require("path");
 const cors = require('cors');
 const app = express();
 const tasks = require("./routes/tasks");
