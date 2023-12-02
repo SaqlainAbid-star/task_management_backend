@@ -11,10 +11,15 @@ const mongoose = require("./models/connection");
 
 
 const corsOptions ={
-    origin: 'http://localhost:3000',
+    origin: '*',
     credentials:true,            //access-control-allow-credentials:true
 }
 app.use(cors(corsOptions));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 
 app.use(express.json());
