@@ -13,12 +13,9 @@ const mongoose = require("./models/connection");
 const corsOptions = {
   origin: '*', // specify the origin you want to allow
   credentials: true, // allow cookies to be sent with requests
-  methods: 'GET,PUT,POST,OPTIONS', // specify the methods you want to allow
-  allowedHeaders: 'Content-Type,Authorization' // specify the headers you want to allow
+  // methods: 'GET,PUT,POST,OPTIONS', // specify the methods you want to allow
+  // allowedHeaders: 'Content-Type,Authorization' // specify the headers you want to allow
 };
-
-app.use(cors(corsOptions)); // use cors middleware for all routes
-
 
 app.use(express.json());
 
@@ -29,6 +26,12 @@ app.use(
 );
 
 app.use(bodyParser.json());
+
+app.use(cors(corsOptions)); // use cors middleware for all routes
+
+
+
+
 
 
 // sending some images large in size
@@ -45,4 +48,6 @@ app.use("/users", users);
 app.use("/groups", groups);
 app.use("/",uploadImage)
 
-app.listen(5000);
+app.listen(5000,()=>{
+  console.log("Your server is running on 5000");
+});
